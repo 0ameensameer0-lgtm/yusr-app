@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- إعدادات الصفحة الأساسية واتجاه التطبيق العربي. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="description" content="يُسر - منصة ذكية لإدارة التحضير والدرجات للمعلمين والجامعات والمدارس." />
+    <title>يُسر | إدارة التحضير والدرجات</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./assets/yusr-logo.png" />
+    <link rel="stylesheet" href="./styles.css?v=343" />
+    <link rel="stylesheet" href="./styles/responsive.css?v=343" />
+    <script src="./assets/icons/lucide.min.js?v=45" defer></script>
+    <script src="./vendor/xlsx.full.min.js?v=44" defer></script>
+  </head>
+  <body>
+    <div id="app-shell" class="app-shell">
+      <!-- القائمة الجانبية الثابتة في الشاشات الكبيرة. -->
+      <aside class="sidebar glass-panel" aria-label="التنقل الرئيسي">
+        <a class="brand" href="#/activate" aria-label="يُسر الرئيسية">
+          <span class="brand-mark"><img src="./assets/yusr-logo.png" alt="" /></span>
+          <span>
+            <strong>يُسر</strong>
+            <small>تحضير ودرجات بذكاء</small>
+          </span>
+        </a>
+
+        <nav class="main-nav">
+          <a href="#/home" class="nav-link active" data-route="home"><i data-lucide="layout-dashboard"></i><span>الرئيسية</span></a>
+          <a href="#/subjects" class="nav-link" data-route="subjects" data-permission="subjects"><i data-lucide="book-open"></i><span>المواد</span></a>
+          <a href="#/students" class="nav-link" data-route="students" data-permission="students"><i data-lucide="users"></i><span>الطلاب</span></a>
+          <a href="#/attendance" class="nav-link" data-route="attendance" data-permission="attendance"><i data-lucide="check-check"></i><span>التحضير</span></a>
+          <a href="#/schedule" class="nav-link" data-route="schedule" data-permission="schedule"><i data-lucide="calendar-days"></i><span>الحصص</span></a>
+          <a href="#/manager" class="nav-link manager-only-link" data-route="manager"><i data-lucide="users-round"></i><span>قسم المشرف</span></a>
+          <a href="#/analytics" class="nav-link" data-route="analytics" data-permission="stats"><i data-lucide="bar-chart-3"></i><span>الإحصائيات</span></a>
+          <a href="#/settings" class="nav-link" data-route="settings" data-permission="settings"><i data-lucide="settings"></i><span>الإعدادات</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="icon-button" id="install-button" hidden title="تثبيت التطبيق"><i data-lucide="smartphone"></i></button>
+          <button class="icon-button" id="theme-button" title="تبديل المظهر"><i data-lucide="moon-star"></i></button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar glass-panel">
+          <button class="icon-button mobile-menu" id="menu-button" aria-label="فتح القائمة"><i data-lucide="menu"></i></button>
+          <a class="mobile-brand" href="#/activate" aria-label="يُسر الرئيسية">
+            <img src="./assets/yusr-logo.png" alt="" />
+          </a>
+          <div class="topbar-title">
+            <span class="eyebrow">لوحة تحكم المعلم</span>
+            <h1 id="page-title">الرئيسية</h1>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-shell">
+              <i data-lucide="search"></i>
+              <input id="global-search" type="search" placeholder="بحث سريع" autocomplete="off" />
+            </label>
+            <button class="icon-button topbar-help-button" id="topbar-help" title="المساعدة" aria-label="المساعدة"><i data-lucide="circle-help"></i></button>
+            <a class="icon-button manager-only-link topbar-manager-button" href="#/manager" title="قسم المشرف" aria-label="قسم المشرف"><i data-lucide="users-round"></i></a>
+            <button class="icon-button" id="notify-button" title="الإشعارات"><i data-lucide="bell"></i><span class="notification-count" id="notification-count" hidden>0</span></button>
+            <button class="user-chip" id="auth-button"><span class="avatar">د</span><span>د. أمين</span></button>
+          </div>
+        </header>
+
+        <section id="view" class="view" aria-live="polite"></section>
+      </main>
+
+      <!-- قائمة الجوال السفلية. تظهر عناصرها حسب صلاحية الحساب. -->
+      <nav class="bottom-nav glass-panel" aria-label="تنقل الجوال">
+        <a href="#/home" class="bottom-link active" data-route="home"><i data-lucide="layout-dashboard"></i><span>الرئيسية</span></a>
+        <a href="#/subjects" class="bottom-link" data-route="subjects" data-permission="subjects"><i data-lucide="book-open"></i><span>المواد</span></a>
+        <a href="#/attendance" class="bottom-link" data-route="attendance" data-permission="attendance"><i data-lucide="check-check"></i><span>التحضير</span></a>
+        <a href="#/schedule" class="bottom-link" data-route="schedule" data-permission="schedule"><i data-lucide="calendar-days"></i><span>الحصص</span></a>
+        <a href="#/manager" class="bottom-link manager-only-link" data-route="manager"><i data-lucide="users-round"></i><span>المشرف</span></a>
+        <a href="#/settings" class="bottom-link" data-route="settings" data-permission="settings"><i data-lucide="settings"></i><span>الإعدادات</span></a>
+      </nav>
+
+      <button class="fab" id="fab-button" aria-label="إضافة"><i data-lucide="plus"></i></button>
+    </div>
+
+    <div id="modal-root"></div>
+    <div id="toast-root" class="toast-root" aria-live="assertive"></div>
+
+    <script type="module" src="./app.js?v=343"></script>
+  </body>
+</html>

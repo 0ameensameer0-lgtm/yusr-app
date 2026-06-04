@@ -1,0 +1,1508 @@
+/* قواعد التابلت: نقل التخطيطات الكبيرة إلى أعمدة أقل حتى لا تضيق البطاقات. */
+@media (max-width: 1120px) {
+  .quick-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-grid, .charts-grid, .settings-grid, .analytics-layout, .license-grid { grid-template-columns: 1fr; }
+  .license-card.request-open {
+    width: min(720px, 100%);
+    max-height: none;
+    overflow: visible;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .license-card.request-open .license-logo,
+  .license-card.request-open > .eyebrow,
+  .license-card.request-open > h2,
+  .license-card.request-open > p,
+  .license-card.request-open > .activation-actions,
+  .license-card.request-open > #temporary-code-box,
+  .license-card.request-open .activation-request-form {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .license-card.request-open .activation-request-form {
+    grid-template-columns: 1fr;
+  }
+  .license-card.request-open .payment-list,
+  .manager-hub,
+  .manager-report-grid {
+    grid-template-columns: 1fr;
+  }
+  .academic-check-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .academic-actions-grid,
+  .academic-transfer-grid,
+  .manager-report-export-panel {
+    grid-template-columns: 1fr;
+  }
+  .managed-account-overview { grid-template-columns: 1fr; }
+  .managed-account-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .institution-switch-panel, .institution-summary-panel { grid-column: auto; }
+  .schedule-grid { grid-template-columns: repeat(3, minmax(220px, 1fr)); }
+}
+
+/* Activation mobile fix:
+   The responsive file is loaded after styles.css, so these rules keep the
+   activation page full-width on phones and prevent the hero from shrinking. */
+@media (max-width: 640px) {
+  .app-shell.license-mode {
+    width: 100vw !important;
+    min-height: 100dvh !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .license-mode .main-content,
+  .license-mode .view {
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    overflow: hidden !important;
+  }
+
+  .premium-activation-page {
+    width: 100vw !important;
+    min-height: 100dvh !important;
+    padding: 0 !important;
+    place-items: stretch !important;
+    background: #fff !important;
+  }
+
+  .premium-activation-card {
+    width: 100vw !important;
+    max-width: none !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    padding: 0 18px 18px !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    gap: clamp(10px, 1.8dvh, 16px) !important;
+  }
+
+  .premium-activation-card:has(.activation-payment-screen:not([hidden])) {
+    overflow-y: auto !important;
+    padding-bottom: 24px !important;
+  }
+
+  .activation-hero {
+    width: 100vw !important;
+    min-height: clamp(220px, 38dvh, 330px) !important;
+    margin-inline: calc(50% - 50vw) !important;
+    border-radius: 0 !important;
+  }
+
+  .activation-hero::after {
+    bottom: -56px !important;
+    height: 118px !important;
+    background: #fff !important;
+  }
+
+  .activation-logo-halo {
+    width: 130px !important;
+    height: 130px !important;
+    bottom: -47px !important;
+    overflow: visible !important;
+  }
+
+  .premium-activation-card .license-logo {
+    width: 104px !important;
+    height: 104px !important;
+    padding: 8px !important;
+    object-fit: contain !important;
+  }
+
+  .activation-welcome {
+    margin-top: 52px !important;
+    gap: 6px !important;
+  }
+
+  .activation-choice-grid {
+    gap: 8px !important;
+  }
+
+  .activation-choice-card {
+    min-height: 92px !important;
+    height: 92px !important;
+    padding: 10px 9px 8px !important;
+    border-radius: 17px !important;
+  }
+
+  .activation-choice-card strong {
+    font-size: 0.9rem !important;
+  }
+
+  .activation-choice-card span {
+    font-size: 0.68rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .activation-choice-card .activation-mini-button {
+    min-height: 32px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .activation-code-panel {
+    margin-top: 0 !important;
+    padding: 14px !important;
+    border-radius: 19px !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input > svg,
+  .premium-activation-card .activation-code-panel .activation-code-input > i,
+  .premium-activation-card .activation-code-panel .activation-code-input .lucide-key-round {
+    position: absolute !important;
+    top: 50% !important;
+    right: 16px !important;
+    left: auto !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: auto !important;
+    width: 24px !important;
+    height: 24px !important;
+    padding: 4px !important;
+    border-radius: 10px !important;
+    display: grid !important;
+    place-items: center !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input .license-input {
+    padding-right: 56px !important;
+    padding-left: 14px !important;
+  }
+}
+
+/* قواعد الجوال: إخفاء القائمة الجانبية وإظهار القائمة السفلية الثابتة. */
+@media (max-width: 860px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    padding: 10px 10px calc(96px + env(safe-area-inset-bottom));
+    gap: 12px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .bottom-nav {
+    position: fixed;
+    inset-inline: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    z-index: 55;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+    padding: 7px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.54)),
+      var(--surface);
+    box-shadow:
+      0 18px 54px rgba(15, 23, 42, 0.14),
+      0 1px 0 rgba(255, 255, 255, 0.62) inset;
+    backdrop-filter: blur(20px);
+  }
+
+  /* عناصر القائمة السفلية مصممة بحجم ثابت حتى لا تتحرك عند تغيير النص أو الأيقونة. */
+  .bottom-link {
+    min-width: 0;
+    min-height: 56px;
+    display: grid;
+    place-items: center;
+    gap: 3px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition), color var(--transition);
+  }
+
+  .bottom-link.active {
+    color: var(--primary);
+    border-color: rgba(37, 99, 235, 0.16);
+    background:
+      radial-gradient(circle at 50% 0, rgba(14, 165, 233, 0.16), transparent 48%),
+      linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(14, 165, 233, 0.1));
+    box-shadow:
+      0 10px 26px rgba(37, 99, 235, 0.16),
+      0 1px 0 rgba(255, 255, 255, 0.38) inset;
+    transform: translateY(-2px);
+  }
+
+  .bottom-link.active svg {
+    transform: translateY(-1px) scale(1.06);
+  }
+
+  .bottom-link:not(.active):hover {
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.07);
+  }
+
+  .role-admin-mode .bottom-nav {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .role-admin-mode .bottom-link {
+    font-size: 0.68rem;
+  }
+
+  /* في حساب المشرف يظهر زر المشرف في الجوال، أما المعلم والمندوب فيبقى مخفيًا. */
+  .role-admin-mode .bottom-link.manager-only-link {
+    display: grid;
+  }
+
+  [data-theme="dark"] .bottom-nav {
+    border-color: rgba(148, 163, 184, 0.18);
+    background:
+      linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.58)),
+      var(--surface);
+    box-shadow:
+      0 18px 60px rgba(0, 0, 0, 0.34),
+      0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  }
+
+  .topbar {
+    top: 10px;
+    min-height: auto;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .mobile-menu { display: none; }
+  .mobile-brand { display: grid; }
+  .topbar-actions { width: 100%; justify-content: space-between; }
+  .topbar { flex-wrap: wrap; }
+  .topbar-title { flex: 1; min-width: 0; }
+  .search-shell { width: auto; flex: 1 1 150px; min-width: 0; }
+  .user-chip span:last-child { display: none; }
+  .quick-stats, .attendance-console { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .managed-account-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .student-card { grid-template-columns: 1fr; }
+  .student-actions { justify-content: flex-start; }
+  .panel-header { align-items: flex-start; flex-direction: column; }
+  .panel-header > *, .toolbar > *, .toolbar-group > * { min-width: 0; }
+  .tabs {
+    position: sticky;
+    top: 114px;
+    z-index: 12;
+    gap: 6px;
+    padding: 6px;
+  }
+  .fab {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 520px) {
+  body { position: relative; }
+  .app-shell, .main-content, .view, .panel, .toolbar, .subjects-grid, .students-list {
+    width: 100%;
+    max-width: 100%;
+  }
+  .subjects-grid { grid-template-columns: 1fr; }
+  .toolbar {
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px;
+  }
+  .toolbar-group, .toolbar-group > * { width: 100%; }
+  .attendance-toolbar {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    align-items: stretch;
+  }
+  .attendance-toolbar > div:first-child {
+    width: 100%;
+    text-align: right;
+  }
+  .attendance-heading {
+    width: 100%;
+  }
+  .attendance-mode-control {
+    width: 100%;
+    min-width: 0;
+  }
+  .attendance-toolbar-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+  }
+  .attendance-toolbar-group > .select-field,
+  .attendance-toolbar-group > .field {
+    width: 100%;
+  }
+  .attendance-toolbar-group #attendance-day { order: 1; }
+  .attendance-toolbar-group #attendance-session { order: 2; }
+  .attendance-command-group {
+    order: 3;
+    grid-column: 1 / -1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .segmented-control { width: 100%; }
+  .segmented-control button { flex: 1; min-width: 0; }
+  .premium-activation-page {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    overflow: hidden;
+  }
+  .premium-activation-card {
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    padding-inline: 18px;
+    padding-bottom: 12px;
+    gap: 9px;
+  }
+  .activation-hero {
+    margin-inline: -18px;
+    min-height: 156px;
+    padding: 0;
+  }
+  .activation-logo-halo {
+    width: 108px;
+    height: 108px;
+    bottom: -18px;
+  }
+  .premium-activation-card .license-logo {
+    width: 86px;
+    height: 86px;
+    padding: 10px;
+  }
+  .activation-welcome {
+    margin-top: 24px;
+    gap: 4px;
+  }
+  .activation-welcome h2 {
+    font-size: 1.48rem;
+  }
+  .activation-welcome p {
+    font-size: 0.82rem;
+  }
+  .activation-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+  .activation-choice-card {
+    min-height: 132px;
+    padding: 12px 58px 10px 10px;
+    border-radius: 18px;
+  }
+  .activation-choice-card::before {
+    display: none;
+  }
+  .activation-card-illustration {
+    width: 42px;
+    height: 42px;
+    top: 34px;
+    inset-inline-start: 10px;
+  }
+  .activation-choice-card > div {
+    min-height: 68px;
+    padding-inline-start: 0;
+  }
+  .activation-choice-card strong {
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+  .activation-choice-card span {
+    margin-top: 5px;
+    font-size: 0.69rem;
+    line-height: 1.5;
+  }
+  .activation-mini-button,
+  .activation-gradient-button,
+  .activation-payment-title {
+    min-height: 42px;
+    border-radius: 13px;
+  }
+  .activation-choice-card .activation-mini-button {
+    min-height: 40px;
+    padding-inline: 8px;
+    gap: 5px;
+    font-size: 0.78rem;
+  }
+  .activation-choice-card .activation-mini-button svg {
+    width: 15px;
+    height: 15px;
+  }
+  .activation-request-form .account-role-picker {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .activation-request-form .account-role-card {
+    min-height: 74px;
+    padding-inline: 6px;
+  }
+  .activation-request-form .account-role-card i {
+    width: 24px;
+    height: 24px;
+  }
+  .activation-request-form .account-role-card strong {
+    font-size: 0.86rem;
+  }
+  .activation-code-panel,
+  .activation-request-form {
+    gap: 8px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+  .activation-code-panel .activation-section-title {
+    gap: 7px;
+  }
+  .activation-code-panel .activation-section-title strong {
+    font-size: 0.92rem;
+  }
+  .activation-code-panel .activation-section-title span {
+    font-size: 0.72rem;
+  }
+  .activation-divider-title {
+    gap: 7px;
+  }
+  .activation-divider-title strong {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+  .activation-code-input .license-input,
+  .activation-select-row .select-field,
+  .activation-name-field input,
+  .teacher-slots-field .field {
+    min-height: 40px;
+    font-size: 0.93rem;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(37, 99, 235, 0.22);
+  }
+  .activation-top-actions {
+    inset-block-start: 14px;
+    inset-inline: 14px;
+  }
+  .activation-help-pill {
+    min-height: 38px;
+    padding-inline: 11px;
+    font-size: 0.84rem;
+  }
+  .support-option-grid {
+    grid-template-columns: 1fr;
+  }
+  .support-option-card {
+    min-height: 96px;
+  }
+  .install-guide-phone {
+    min-height: 0;
+    height: calc(100dvh - 132px);
+    max-height: 650px;
+    touch-action: pan-y;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  .install-guide-slide {
+    width: min(304px, 84vw);
+  }
+  .install-guide-slide img {
+    max-height: calc(100dvh - 190px);
+    object-fit: contain;
+  }
+  .install-guide-slide figcaption {
+    padding-inline: 12px;
+  }
+  .install-guide-slide figcaption strong {
+    font-size: 1rem;
+  }
+  .install-guide-slide figcaption span {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .install-guide-controls {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: -4px;
+  }
+  .install-guide-controls .ghost-button,
+  .install-guide-controls .primary-button {
+    display: none;
+  }
+  .install-guide-dots {
+    min-height: 24px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.07);
+  }
+  .install-guide-dots button {
+    width: 7px;
+    height: 7px;
+  }
+  .install-guide-dots button.active {
+    width: 26px;
+  }
+
+  .activation-select-row .select-field {
+    max-width: 100% !important;
+    padding-right: 34px !important;
+    padding-left: 10px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+  }
+  .currency-display,
+  .plan-preview {
+    padding: 8px 10px;
+    min-height: 42px;
+    border-radius: 13px;
+  }
+  .currency-display {
+    grid-template-columns: 24px minmax(0, 1fr) auto;
+  }
+  .currency-display span,
+  .currency-display strong,
+  .plan-preview span,
+  .plan-preview strong,
+  .plan-preview p,
+  .teacher-slots-field,
+  .activation-name-field {
+    font-size: 0.86rem;
+  }
+  .account-role-picker { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .account-role-card { min-height: 82px; padding-inline: 6px; }
+  .manager-entry-panel { min-height: auto; align-content: start; }
+  .manager-hub-card { min-height: 138px; }
+  .manager-hub.compact .manager-hub-card { min-height: 96px; }
+  .manager-report-grid,
+  .academic-check-grid,
+  .academic-actions-grid,
+  .academic-transfer-grid,
+  .manager-report-export-panel {
+    grid-template-columns: 1fr;
+  }
+  .manager-report-card,
+  .academic-transfer-box {
+    padding: 12px;
+  }
+  .report-metrics {
+    grid-template-columns: 1fr;
+  }
+  .smart-assistant {
+    top: min(52dvh, calc(100dvh - 170px));
+  }
+  .assistant-orb {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+  }
+  .assistant-robot-animation,
+  .assistant-robot-fallback {
+    width: 52px;
+    height: 52px;
+  }
+  .assistant-arm {
+    top: 29px;
+    width: 12px;
+    height: 18px;
+  }
+  .assistant-arm.left {
+    right: -4px;
+  }
+  .assistant-arm.right {
+    left: -4px;
+  }
+  .assistant-chat {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 24px);
+  }
+  .manager-sections-grid { grid-template-columns: 1fr; }
+  .manager-request-alert { grid-template-columns: 1fr; }
+  .manager-table-tools { align-items: stretch; }
+  .manager-table-search { max-width: none; flex-basis: 100%; }
+  .manager-mobile-list { display: grid; gap: 10px; }
+  .behavior-summary-grid { grid-template-columns: 1fr; }
+  .behavior-form { grid-template-columns: 1fr; }
+  .behavior-note-field { grid-column: auto; }
+  .behavior-mobile-list { display: grid; gap: 10px; }
+  .behavior-card-head {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+  .behavior-card-head .status-badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+  .behavior-card-title {
+    gap: 5px;
+  }
+  .behavior-card-title strong {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .behavior-card-title small {
+    font-size: 0.72rem;
+    line-height: 1.65;
+  }
+  .behavior-tabbar,
+  .behavior-record-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .behavior-tab,
+  .behavior-record-tools > * {
+    width: 100%;
+  }
+  .behavior-contact-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .behavior-manage-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .behavior-contact-button,
+  .behavior-card-actions .status-button {
+    min-width: 0;
+    padding-inline: 8px;
+    font-size: 0.82rem;
+  }
+  .behavior-contact-button[href^="sms:"] {
+    gap: 9px;
+  }
+  .manager-teacher-navigator .panel-header { align-items: stretch; }
+  .manager-teacher-navigator .compact-search { max-width: none; width: 100%; }
+  .manager-teacher-grid { grid-template-columns: 1fr; }
+  .manager-teacher-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .supervisor-stat-groups { grid-template-columns: 1fr; }
+  .supervisor-filter-strip { align-items: stretch; }
+  .manager-code-card {
+    grid-template-columns: 1fr;
+  }
+
+  .offline-sync-card {
+    grid-template-columns: 1fr;
+  }
+  .primary-button, .ghost-button, .danger-button, .field, .select-field, .compact-select { width: 100%; min-width: 0; }
+  .topbar-help-button { flex: 0 0 44px; }
+  .attendance-console { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .schedule-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .admin-section-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .table-shell { display: none; }
+  .managed-data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .admin-codes-mobile { display: grid; gap: 10px; }
+  .activation-requests-mobile { display: grid; gap: 10px; }
+  .request-card-grid { grid-template-columns: 1fr; }
+  .table-shell.attendance-sheet {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .grade-column-manager { display: block; margin-bottom: 10px; }
+  .grades-add-column-desktop,
+  .grades-search-desktop {
+    display: none;
+  }
+  .grades-search-mobile {
+    display: block;
+  }
+  .grades-mobile { display: grid; gap: 10px; }
+  .grade-fields { grid-template-columns: 1fr; }
+  .grade-column-item { grid-template-columns: 1fr; }
+  .grade-column-actions { justify-content: stretch; }
+  .grade-column-actions .status-button { flex: 1 1 calc(50% - 6px); min-height: 38px; }
+  .status-button {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+    min-height: 38px;
+    padding-inline: 8px;
+    font-size: 0.86rem;
+  }
+  .student-main, .student-name { width: 100%; }
+  .swipe-hint { display: block; width: 100%; max-width: none; }
+  .fab { left: 18px; bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .toast-root { inset-inline: 12px; top: 12px; left: 12px; }
+  .toast { min-width: 0; max-width: none; width: 100%; }
+  .modal {
+    max-height: calc(100vh - 28px);
+    overflow: auto;
+  }
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.08rem; }
+  .duration-row { grid-template-columns: 1fr; }
+  .payment-accounts { grid-template-columns: 1fr; }
+  .payment-method.compact {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+  .payment-method.compact h4 { grid-column: 1 / -1; }
+  .payment-method.compact strong { text-align: right; }
+  .column-analysis-grid { grid-template-columns: 1fr; }
+  .distribution-row, .distribution-row.with-names {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .distribution-names {
+    grid-column: 1;
+  }
+  .schedule-summary, .form-row { grid-template-columns: 1fr; }
+  .institution-tabs { grid-template-columns: 1fr; }
+  .institution-actions { grid-template-columns: 1fr; max-width: none; gap: 10px; }
+  .institution-actions .status-button { flex: none; width: 100%; }
+  .schedule-grid { grid-template-columns: 1fr; overflow: visible; }
+  .lesson-card { grid-template-columns: 74px minmax(0, 1fr) 42px; align-items: center; }
+  .lesson-actions { justify-content: stretch; }
+  .lesson-actions .icon-button { flex: 0 0 34px; width: 34px; }
+  .panel,
+  .subject-card,
+  .student-card,
+  .grade-card,
+  .settings-section,
+  .schedule-day,
+  .license-card,
+  .admin-code-card {
+    padding: 12px;
+  }
+  .settings-list-section {
+    padding: 0;
+    border-radius: 16px;
+  }
+  .settings-grid:has(.settings-list-section) {
+    gap: 8px;
+  }
+  .settings-section-head {
+    min-height: 66px;
+    gap: 10px;
+    padding: 10px 11px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .settings-section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+  .settings-section-icon i {
+    width: 21px;
+    height: 21px;
+  }
+  .settings-section-copy strong {
+    font-size: 0.92rem;
+  }
+  .settings-section-copy small {
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
+  .settings-section-body {
+    padding: 0 11px 13px;
+  }
+  .panel-header,
+  .section-header,
+  .card-header {
+    gap: 8px;
+  }
+  .subject-card {
+    min-height: auto;
+  }
+  .student-actions,
+  .grade-column-actions,
+  .admin-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .attendance-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .attendance-actions .status-button,
+  .admin-actions .status-button,
+  .grade-column-actions .status-button {
+    flex: 1 1 auto;
+  }
+  .attendance-actions .status-button {
+    width: 100%;
+    min-height: 40px;
+    padding-inline: 6px;
+    font-size: 0.82rem;
+  }
+  .student-management-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    max-width: none;
+  }
+  .student-management-actions .status-badge {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: center;
+  }
+  .student-management-actions .ghost-button,
+  .student-management-actions .danger-button {
+    width: 100%;
+    min-height: 40px;
+    padding-inline: 6px;
+    font-size: 0.82rem;
+  }
+  .stats-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stats-tabs .status-button {
+    width: 100%;
+  }
+  .stats-group-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .stats-group-tabs .status-button {
+    width: 100%;
+    min-height: 54px;
+    padding: 8px 6px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+  .stats-group-button {
+    position: relative;
+    min-height: 54px;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+  .stats-group-button.active {
+    transform: none;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+  }
+  .stats-group-button.active::after {
+    width: 8px;
+    height: 8px;
+    inset-block-start: 8px;
+    inset-inline-start: 8px;
+  }
+  .stats-group-button small {
+    display: none;
+  }
+  .attendance-sheet {
+    max-height: 72vh;
+  }
+  .attendance-sheet th,
+  .attendance-sheet td {
+    padding: 9px 8px;
+  }
+  .attendance-sheet .sticky-num {
+    min-width: 42px;
+    width: 42px;
+  }
+  .attendance-sheet .sticky-col {
+    right: 42px;
+    min-width: 118px;
+    max-width: 132px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+  .attendance-sheet .sticky-col strong {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Mobile activation polish: the first screen stays fixed and all cards fit without clipped text. */
+@media (max-width: 640px) {
+  .premium-activation-page {
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .premium-activation-card {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: 0 13px 12px;
+    gap: 8px;
+  }
+
+  .premium-activation-card:has(.activation-payment-screen:not([hidden])) {
+    overflow-y: auto;
+    padding-bottom: 18px;
+  }
+
+  .activation-hero {
+    min-height: 126px;
+    margin-inline: -13px;
+    overflow: visible;
+  }
+
+  .activation-hero::after {
+    bottom: -48px;
+    height: 92px;
+  }
+
+  .activation-logo-halo {
+    width: 104px;
+    height: 104px;
+    bottom: -46px;
+    z-index: 3;
+  }
+
+  .premium-activation-card .license-logo {
+    width: 82px;
+    height: 82px;
+    padding: 8px;
+  }
+
+  .activation-welcome {
+    margin-top: 52px;
+    gap: 3px;
+  }
+
+  .activation-welcome h2 {
+    font-size: 1.28rem;
+  }
+
+  .activation-welcome p {
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .activation-choice-grid {
+    gap: 8px;
+  }
+
+  .activation-choice-card {
+    min-height: 0;
+    height: 96px;
+    padding: 8px;
+    border-radius: 16px;
+    gap: 5px;
+    align-content: center;
+  }
+
+  .activation-choice-card > div {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .activation-choice-card strong {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
+  .activation-choice-card span {
+    max-width: 9rem;
+    margin-top: 3px;
+    font-size: 0.6rem;
+    line-height: 1.35;
+  }
+
+  .activation-choice-card .activation-mini-button {
+    min-height: 30px;
+    border-radius: 11px;
+    font-size: 0.68rem;
+    padding-inline: 8px;
+  }
+
+  .activation-code-panel {
+    gap: 8px;
+    padding: 12px 10px 10px;
+    border-radius: 18px;
+  }
+
+  .activation-section-title strong {
+    font-size: 0.9rem;
+  }
+
+  .activation-section-title span {
+    font-size: 0.69rem;
+  }
+
+  .activation-code-input .license-input {
+    min-height: 39px;
+    font-size: 0.86rem;
+  }
+
+  .activation-gradient-button {
+    min-height: 43px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .premium-activation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 9px;
+    padding-inline: 12px;
+  }
+
+  .activation-hero {
+    min-height: 118px;
+    margin-inline: -12px;
+  }
+
+  .activation-hero::after {
+    bottom: -44px;
+    height: 86px;
+  }
+
+  .activation-logo-halo {
+    width: 108px;
+    height: 108px;
+    bottom: -48px;
+  }
+
+  .premium-activation-card .license-logo {
+    width: 82px;
+    height: 82px;
+    padding: 11px;
+  }
+
+  .activation-welcome {
+    margin-top: 50px;
+  }
+
+  .activation-welcome h2 {
+    font-size: 1.22rem;
+  }
+
+  .activation-welcome p {
+    font-size: 0.72rem;
+  }
+
+  .activation-choice-grid {
+    gap: 9px;
+    margin-top: 2px;
+  }
+
+  .activation-choice-card {
+    height: 104px;
+    min-height: 104px;
+    padding: 10px 9px 8px;
+    gap: 6px;
+    border-radius: 17px;
+    align-content: space-between;
+  }
+
+  .activation-choice-card strong {
+    font-size: 0.84rem;
+    line-height: 1.25;
+  }
+
+  .activation-choice-card span {
+    max-width: 8.6rem;
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  .activation-choice-card .activation-mini-button {
+    min-height: 31px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+
+  .activation-code-panel {
+    margin-top: 2px;
+    gap: 7px;
+    padding: 12px 10px 10px;
+    border-radius: 18px;
+  }
+
+  .activation-section-title {
+    gap: 6px;
+  }
+
+  .activation-section-title > svg,
+  .activation-section-title i {
+    width: 19px;
+    height: 19px;
+  }
+
+  .activation-code-input > svg,
+  .activation-code-input i {
+    left: auto !important;
+    right: 11px !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: auto !important;
+    width: 21px;
+    height: 21px;
+    padding: 3px;
+  }
+
+  .activation-code-input .license-input {
+    min-height: 37px;
+    padding-left: 12px;
+    padding-right: 44px;
+  }
+
+  .activation-gradient-button {
+    min-height: 41px;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    line-height: 1 !important;
+    padding-block: 0 !important;
+  }
+
+  .activation-gradient-button > svg,
+  .activation-gradient-button > i {
+    position: static !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    align-self: center !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input > svg,
+  .premium-activation-card .activation-code-panel .activation-code-input > i,
+  .premium-activation-card .activation-code-panel .activation-code-input .lucide-key-round {
+    right: 12px !important;
+    left: auto !important;
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input .license-input {
+    padding-right: 42px !important;
+    padding-left: 12px !important;
+  }
+
+  .premium-activation-card .activation-top-actions {
+    position: absolute !important;
+    top: max(12px, env(safe-area-inset-top)) !important;
+    right: 14px !important;
+    left: 14px !important;
+    inset-block-start: max(12px, env(safe-area-inset-top)) !important;
+    inset-inline: 14px !important;
+    width: auto !important;
+    z-index: 20 !important;
+    pointer-events: none;
+    transform: none !important;
+  }
+
+  .premium-activation-card:has(.activation-payment-screen:not([hidden])) .activation-top-actions {
+    display: none !important;
+  }
+
+  .premium-activation-card .activation-help-pill {
+    pointer-events: auto;
+    transform: none !important;
+  }
+
+  .activation-open-button {
+    gap: 8px;
+  }
+
+  .activation-open-button > svg,
+  .activation-open-button > i {
+    position: static !important;
+    width: 20px !important;
+    height: 20px !important;
+    transform: none !important;
+  }
+
+  .assistant-orb {
+    width: 62px !important;
+    height: 70px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .assistant-orb::after {
+    display: none !important;
+  }
+
+  .assistant-robot-animation,
+  .assistant-robot-fallback {
+    width: 60px !important;
+    height: 66px !important;
+  }
+
+  .assistant-robot-head {
+    width: 44px !important;
+    height: 35px !important;
+  }
+
+  .assistant-robot-fallback::before {
+    top: 40px !important;
+    width: 31px !important;
+    height: 25px !important;
+  }
+
+  .assistant-arm.left {
+    top: 39px !important;
+    right: 9px !important;
+  }
+
+  .assistant-arm.right {
+    top: 27px !important;
+    left: 8px !important;
+  }
+
+  .assistant-arm::after {
+    width: 12px !important;
+    height: 11px !important;
+  }
+
+  .assistant-arm.right::after {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
+/* Final activation mobile override:
+   Keep this block at the end because responsive.css loads after the main file. */
+@media (max-width: 640px) {
+  .app-shell.license-mode {
+    width: 100vw !important;
+    min-height: 100dvh !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .license-mode .main-content,
+  .license-mode .view,
+  .premium-activation-page,
+  .premium-activation-card {
+    width: 100vw !important;
+    max-width: none !important;
+  }
+
+  .license-mode .main-content,
+  .license-mode .view,
+  .premium-activation-page {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  .premium-activation-page {
+    padding: 0 !important;
+    place-items: stretch !important;
+    background: #fff !important;
+  }
+
+  .premium-activation-card {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    padding: 0 18px 18px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    background: #fff !important;
+    gap: clamp(10px, 1.8dvh, 16px) !important;
+  }
+
+  .premium-activation-card:has(.activation-payment-screen:not([hidden])) {
+    overflow-y: auto !important;
+    padding-bottom: 24px !important;
+  }
+
+  .activation-hero {
+    width: 100vw !important;
+    min-height: clamp(220px, 38dvh, 330px) !important;
+    margin-inline: calc(50% - 50vw) !important;
+    border-radius: 0 !important;
+  }
+
+  .activation-hero::after {
+    bottom: -56px !important;
+    height: 118px !important;
+    background: #fff !important;
+  }
+
+  .activation-logo-halo {
+    width: 130px !important;
+    height: 130px !important;
+    bottom: -47px !important;
+    overflow: visible !important;
+  }
+
+  .premium-activation-card .license-logo {
+    width: 104px !important;
+    height: 104px !important;
+    padding: 8px !important;
+    object-fit: contain !important;
+  }
+
+  .activation-welcome {
+    margin-top: 52px !important;
+  }
+
+  .activation-choice-grid {
+    gap: 8px !important;
+  }
+
+  .activation-choice-card {
+    min-height: 92px !important;
+    height: 92px !important;
+    padding: 10px 9px 8px !important;
+    border-radius: 17px !important;
+  }
+
+  .activation-choice-card strong {
+    font-size: 0.9rem !important;
+  }
+
+  .activation-choice-card span {
+    font-size: 0.68rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .activation-choice-card .activation-mini-button {
+    min-height: 32px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .activation-code-panel {
+    margin-top: 0 !important;
+    padding: 14px !important;
+    border-radius: 19px !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input > svg,
+  .premium-activation-card .activation-code-panel .activation-code-input > i,
+  .premium-activation-card .activation-code-panel .activation-code-input .lucide-key-round {
+    position: absolute !important;
+    top: 50% !important;
+    right: 14px !important;
+    left: auto !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: auto !important;
+    transform: translateY(-50%) !important;
+    z-index: 3 !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input .license-input {
+    padding-right: 48px !important;
+    padding-left: 14px !important;
+  }
+}
+
+/* Final phone rule: keep the activation key icon inside the input, centered vertically. */
+@media (max-width: 640px) {
+  .premium-activation-card .activation-code-panel .activation-code-input {
+    direction: rtl !important;
+    display: grid !important;
+    grid-template-columns: 34px minmax(0, 1fr) 34px !important;
+    position: relative !important;
+    align-items: center !important;
+    min-height: 42px !important;
+    padding: 0 8px !important;
+    border: 1px solid var(--line) !important;
+    border-radius: 14px !important;
+    background: var(--surface-strong) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input .license-input {
+    direction: rtl !important;
+    grid-column: 2 !important;
+    width: 100% !important;
+    min-height: 40px !important;
+    padding: 0 6px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: var(--surface-strong) !important;
+    box-shadow: none !important;
+    text-align: center !important;
+  }
+
+  .premium-activation-card .activation-code-panel .activation-code-input > svg,
+  .premium-activation-card .activation-code-panel .activation-code-input > i,
+  .premium-activation-card .activation-code-panel .activation-code-input .lucide-key-round {
+    position: static !important;
+    grid-column: 1 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: auto !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 2px !important;
+    transform: none !important;
+    color: var(--primary) !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    pointer-events: none !important;
+  }
+
+  #temporary-code-box {
+    margin-top: 10px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  #temporary-code-box .temporary-code-card {
+    gap: 10px !important;
+    padding: 12px 10px !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+  }
+
+  #temporary-code-box .temporary-code-label {
+    min-height: 30px !important;
+    padding: 5px 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  #temporary-code-box strong {
+    min-height: 42px !important;
+    padding: 8px 10px !important;
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .activation-temp-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 7px !important;
+  }
+
+  .activation-temp-actions .status-button,
+  .activation-temp-actions .primary-button {
+    min-height: 40px !important;
+    padding: 8px 10px !important;
+    font-size: 0.84rem !important;
+    border-radius: 13px !important;
+  }
+}

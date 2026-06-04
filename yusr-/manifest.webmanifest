@@ -1,0 +1,40 @@
+{
+  "name": "يُسر - إدارة التحضير والدرجات",
+  "short_name": "يُسر",
+  "description": "تطبيق عربي احترافي لإدارة التحضير والدرجات للمدارس والجامعات.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html#/activate",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#eef4ff",
+  "theme_color": "#2563eb",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "./assets/yusr-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/yusr-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "بدء التحضير",
+      "short_name": "التحضير",
+      "url": "./index.html#/attendance"
+    },
+    {
+      "name": "الدرجات",
+      "short_name": "الدرجات",
+      "url": "./index.html#/grades"
+    }
+  ]
+}
